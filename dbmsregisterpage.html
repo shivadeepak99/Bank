@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Login</title>
+    <link rel="stylesheet" href="dbmscss.css">
+</head>
+<body>
+<div id="d0">
+    <h1><b>Welcome to DuCk YoU Universal Bank</b></h1>
+</div>
+<div id="d1">
+    <div id="d2">
+        <h2><b>Register your Account Now!!</b></h2>
+        <form action="/register" method="post">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required>
+
+            <label for="phoneNumberRegister">Phone Number:</label>
+            <input type="tel" id="phoneNumberRegister" name="phoneNumberRegister" required>
+
+            <label for="accountType">Account Type:</label>
+            <select id="accountType" name="accountType" required>
+                <option value="savings">Savings</option>
+                <option value="checking">Checking</option>
+            </select>
+
+            <label for="registerPassword">Password:</label>
+            <input type="password" id="registerPassword" name="registerPassword" required>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <div id="d3">
+        <h3><b>Already have your Account?</b></h3>
+        <h2><b>Login Your Account Here</b></h2>
+        <form>
+            <label for="customerId">Customer ID:</label>
+            <input type="text" id="customerId" name="customerId" required>
+
+            <label for="loginName">Name:</label>
+            <input type="text" id="loginName" name="loginName" required>
+
+            <label for="phoneNumberLogin">Phone Number:</label>
+            <input type="tel" id="phoneNumberLogin" name="phoneNumberLogin" required>
+
+            <input type="button" onclick="inclogin()" value="Login">
+        </form>
+    </div>
+</div>
+<script src="dbmsjs.js"></script>
+</body>
+</html>

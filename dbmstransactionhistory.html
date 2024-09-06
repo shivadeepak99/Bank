@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #E0E0E0; /* Light text color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #1E1E1E; /* Slightly lighter dark background */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Bright color for heading */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #333; /* Darker border for contrast */
+        }
+        th {
+            background-color: #4CAF50; /* Bright header background */
+            color: #E0E0E0; /* Light text color */
+        }
+        tr:nth-child(even) {
+            background-color: #2E2E2E; /* Slightly lighter dark row color */
+        }
+        tr:nth-child(odd) {
+            background-color: #1E1E1E; /* Same as container background for odd rows */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Transaction History</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2024-09-01</td>
+            <td>Deposit</td>
+            <td>$500.00</td>
+            <td>$1500.00</td>
+        </tr>
+        <tr>
+            <td>2024-09-02</td>
+            <td>Purchase</td>
+            <td>-$200.00</td>
+            <td>$1300.00</td>
+        </tr>
+        <tr>
+            <td>2024-09-03</td>
+            <td>Transfer</td>
+            <td>-$100.00</td>
+            <td>$1200.00</td>
+        </tr>
+        <tr>
+            <td>2024-09-04</td>
+            <td>Deposit</td>
+            <td>$300.00</td>
+            <td>$1500.00</td>
+        </tr>
+        <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
