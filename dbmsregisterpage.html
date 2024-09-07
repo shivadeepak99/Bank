@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <title>Bank Login</title>
     <link rel="stylesheet" href="dbmscss.css">
+    <style>
+
+        .slide-in {
+            transform: translateX(-100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide-in-active {
+            transform: translateX(0);
+        }
+
+        .slide-up {
+            transform: translateY(100%);
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide-up-active {
+            transform: translateY(0);
+        }
+
+    </style>
 </head>
 <body>
 <div id="d0">
@@ -58,5 +79,14 @@
     </div>
 </div>
 <script src="dbmsjs.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("d2").classList.add("fade-in-active");
+    document.getElementById("d3").classList.add("fade-in-active");
+
+    setTimeout(function() {
+        document.getElementById("d2").classList.add("slide-up-active");
+        document.getElementById("d3").classList.add("slide-up-active");
+    }, 500);
+});</script>
 </body>
 </html>
