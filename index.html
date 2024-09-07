@@ -1,20 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta http-equiv="refresh" content="0; url=dbmsregisterpage.html">
-    <title>Redirecting...</title>
+    <meta http-equiv="refresh" content="5;url=/dbmsregisterpage.html">
+    <style>
+        #blast-container {
+            border: solid 4px;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .blast-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #ff0000;
+            animation: blast 2s forwards;
+        }
+
+        .neon-border {
+            padding: 20px;
+            border: 9px solid blue; /* Neon green border */
+            box-shadow: 0 0 40px rgba(0, 255, 0, 0.7), 0 0 20px rgba(0, 255, 0, 0.7); /* Neon glow effect */
+            color: #00ff00; /* Text color matching the neon border */
+            background-color: #000; /* Dark background for contrast */
+            font-family: Arial, sans-serif; /* Font style */
+            text-align: center; /* Center align text */
+        }
+
+        @keyframes blast {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        #countdown {
+            font-size: 300px;
+            font-style: italic;
+            font-weight: bolder;
+            font-family: Algerian;
+            color: red;
+            text-align: center;
+            position: static;
+        }
+    </style>
 </head>
-<body>
-    <p>If you are not redirected automatically, <a href="dbmsregisterpage.html">click here</a>.</p>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="refresh" content="0; url=dbmshomepage.html">
-    <title>Redirecting...</title>
-</head>
-<body>
-    <p>If you are not redirected automatically, <a href="dbmshomepage.html">click here</a>.</p>
+<body style="background: black">
+<div id="blast-container" class="neon-border">
+    <h1 style="color: yellow; font-family: Algerian; font-weight: bolder; font-size: xxx-large; text-align: center; background: linear-gradient(45deg, blue, burlywood)">CHILL BRO ....</h1>
+    <h1 id="countdown"></h1>
+</div>
+<audio id="blast-sound" src="blast.mp3" preload="auto"></audio>
+<script>
+    let countdownTime = 4;
+    const countdownElement = document.getElementById('countdown');
+    const blastSound = document.getElementById('blast-sound');
+    const blastContainer = document.getElementById('blast-container');
+
+    function updateCountdown() {
+        countdownElement.textContent = countdownTime;
+        countdownTime -= 1;
+        blast();
+
+    }
+
+    function blast() {
+        blastSound.play();
+        blastContainer.classList.add('blast-animation');
+        setTimeout(() => {
+            blastContainer.classList.remove('blast-animation');
+        }, 950);
+    }
+
+    setInterval(updateCountdown, 1000);
+</script>
 </body>
 </html>
