@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bankai</title>
+    <title>Bank Login</title>
     <link rel="stylesheet" href="dbmscss.css">
 </head>
 <body>
@@ -31,13 +31,13 @@
             <label for="registerPassword">Password:</label>
             <input type="password" id="registerPassword" name="registerPassword" required>
 
-            <input type="submit" value="Register">
+            <input type="submit" value="Register" formmethod="post" >
         </form>
     </div>
     <div id="d3">
         <h3><b>Already have your Account?</b></h3>
         <h2><b>Login Your Account Here</b></h2>
-        <form>
+        <form action="/login" method="post">
             <label for="customerId">Customer ID:</label>
             <input type="text" id="customerId" name="customerId" required>
 
@@ -47,7 +47,7 @@
             <label for="phoneNumberLogin">Phone Number:</label>
             <input type="tel" id="phoneNumberLogin" name="phoneNumberLogin" required>
 
-            <input type="button" onclick="inclogin()" value="Login">
+            <input type="button"  formmethod="post"  value="Login">
         </form>
     </div>
 </div>
