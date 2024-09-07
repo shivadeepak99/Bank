@@ -31,12 +31,12 @@
     padding: 0 20px;
 }
 
-#d1 {    background-image: url("https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg");
-
+#d1 {
+    background-image: url("https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg");
     background-color: black;
     background-size: cover;
     background-repeat: no-repeat;
-color: white;
+    color: white;
     width: 100%;
     min-height: 1080px;
     display: flex;
@@ -46,12 +46,16 @@ color: white;
 }
 
 #d2, #d3 {
-background: linear-gradient(45deg,red, purple);
+    background: linear-gradient(45deg, red, purple);
     width: 45%;
     padding: 20px;
     box-sizing: border-box;
     border-radius: 8px;
-}
+    input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}}
 
 table {
     width: 100%;
@@ -61,6 +65,17 @@ table {
 td {
     padding: 10px;
     border: 1px solid #ddd;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-top: 10px;
+    display: block;
 }
 
 input[type="text"], input[type="password"], input[type="tel"], select {
@@ -79,6 +94,10 @@ input[type="submit"], input[type="button"] {
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover {
+    background: linear-gradient(45deg, green, red);
 }
 
 .slide-in {
