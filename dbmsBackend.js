@@ -8,7 +8,6 @@ const port = 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 const connection = mysql.createConnection({
     host: "localhost",
@@ -84,7 +83,7 @@ app.post('/register', async (req, res) => {
                     res.send(`
                         <html>
                         <head>
-                            <meta http-equiv="refresh" content="11;url=/login">
+                            <meta http-equiv="refresh" content="20;url=/login">
                         </head>
                         <body style="background: linear-gradient(45deg, blue, purple)">
                             <h2 style="color: yellow; background: black;">IMPORTANT: Please note your account number. This page will be redirected in <span id="countdown" style="color: green; font-size: xxx-large; font-weight: bolder">10</span> seconds.</h2>
@@ -97,13 +96,17 @@ app.post('/register', async (req, res) => {
                                     const countdownElement = document.getElementById('countdown');
                                     countdownElement.textContent = countdownTime;
                                     
-                                    if (countdownTime <= 3) {
+                                    if (countdownTime <= 3 && countdownTime>=0) {
                                         countdownElement.style.color = 'red';
-                                    } else if (countdownTime <= 5) {
+                                    } 
+                                    if (countdownTime <= 5 && countdownTime>3) {
                                         countdownElement.style.color = 'orange';
-                                    } else if (countdownTime <= 8) {
+                                    } 
+                                    if (countdownTime <= 8 && countdownTime>5) {
                                         countdownElement.style.color = 'blue';
-                                    } else {
+                                    } 
+                                    if(countdownTime<0) {
+                                        countdownElement.textContent='saale dar gya 😂😂';
                                         countdownElement.style.color = 'green';
                                     }
 
@@ -125,10 +128,11 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
     try {
-        const { customerId, loginPassword } = req.body;
+        const { accountNumber, password } = req.body;
+        console.log('AccountNumber:', accountNumber); // Debugging line
         const query = `SELECT * FROM Users WHERE AccountNumber = ?`;
 
-        connection.query(query, [customerId], async (err, results) => {
+        connection.query(query, [accountNumber], async (err, results) => {
             if (err) {
                 console.error('Error querying user:', err);
                 res.status(500).send('Server error');
@@ -139,11 +143,22 @@ app.post('/login', async (req, res) => {
             }
 
             const user = results[0];
-            const isMatch = await bcrypt.compare(loginPassword, user.registerPassword);
+            const isMatch = await bcrypt.compare(password, user.registerPassword);
 
             if (isMatch) {
-                res.send(`Login successful! Welcome, ${user.firstName}.`);
-            } else {
+                res.send(`
+        <html>
+        <head>
+            <meta http-equiv="refresh" content="10;url=/dbmshomepage.html">
+        </head>
+        <body style="background: black">
+            <h1 style="color: yellow">Login successful! Welcome, ${user.firstName}.</h1><br>
+            <h1 style="  color: ghostwhite;  background: linear-gradient(45deg,blue,burlywood)"> you will be redirected  shortly... chill bro me hu na 😁😘😉</h1>
+        </body>
+        </html>
+    `);
+            }
+            else {
                 res.send('Incorrect password');
             }
         });
@@ -152,6 +167,8 @@ app.post('/login', async (req, res) => {
         res.status(500).send('Server error');
     }
 });
+
+
 
 app.use((req, res) => {
     res.status(404).send('404 Not Found');
