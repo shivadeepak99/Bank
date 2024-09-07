@@ -1,78 +1,68 @@
-/* Styles for the header section */
-#si{
-font-size: xx-large;
+#si {
+    font-size: xx-large;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
-#balance{
-background:  linear-gradient(50deg,moccasin,red);
+
+#balance {
+    background: linear-gradient(50deg, moccasin, red);
     clear: both;
     align-self: start;
 }
 
-#dbd{
-
-        max-width: 1000px;
+#dbd {
+    max-width: 1000px;
     min-height: 600px;
-        margin: 50px auto;
-
-        background: linear-gradient(45deg, yellow, orange); /* Replace with desired gradient */
-
-
-        padding: 20px;
-        border-radius: 8px;
-
-
-
-
+    margin: 50px auto;
+    background: linear-gradient(45deg, yellow, orange);
+    padding: 20px;
+    border-radius: 8px;
 }
 
 #d0 {
-    background-color: burlywood;
-    width: 100%; /* Adjusted to fit the viewport width */
+    background: linear-gradient(55deg, black, blue);
+    color: yellow;
+    width: 100%;
     height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 20px; /* Added padding for better alignment */
+    padding: 0 20px;
 }
 
-/* Styles for the main container */
-#d1 {
-    background-color: cyan;
-    width: 100%; /* Adjusted to fit the viewport width */
-    min-height: 1080px; /* Ensures the container is at least 1080px high */
+#d1 {    background-image: url("https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg");
+
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+color: white;
+    width: 100%;
+    min-height: 1080px;
     display: flex;
     justify-content: space-between;
-    padding: 20px; /* Added padding for better spacing */
+    padding: 20px;
     box-sizing: border-box;
 }
 
-/* Styles for the registration and login forms */
 #d2, #d3 {
-    background-image: url("https://img.freepik.com/free-vector/gradient-dynamic-blue-lines-background_23-2148995756.jpg");
-    width: 45%; /* Ensures both divs fit side by side */
-    background-color: #fff; /* Added background color for better visibility */
-    padding: 20px; /* Added padding inside the divs */
-    box-sizing: border-box; /* Includes padding in width calculation */
-    border-radius: 8px; /* Rounded corners for a nicer look */
+background: linear-gradient(45deg,red, purple);
+    width: 45%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
 }
 
-/* Styles for the table in the forms */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Styles for table cells */
 td {
     padding: 10px;
     border: 1px solid #ddd;
 }
 
-/* Styles for form elements */
 input[type="text"], input[type="password"], input[type="tel"], select {
     width: 60%;
     padding: 8px;
@@ -81,32 +71,30 @@ input[type="text"], input[type="password"], input[type="tel"], select {
     border-radius: 4px;
 }
 
-/* Styles for submit buttons */
-input[type="submit"] {
+input[type="submit"], input[type="button"] {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #4CAF50;
+    background: linear-gradient(45deg, red, green);
     color: white;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Hover effect for submit buttons */
-input[type="submit"] {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background: linear-gradient(45deg, red, green); /* Gradient background */
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.slide-in {
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
 }
-input[type="button"] {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background: linear-gradient(45deg, red, green); /* Gradient background */
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+.slide-in-active {
+    transform: translateX(0);
+}
+
+.slide-up {
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide-up-active {
+    transform: translateY(0);
 }
