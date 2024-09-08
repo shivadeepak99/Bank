@@ -5,44 +5,111 @@
     <title>Bank Login</title>
     <link rel="stylesheet" href="dbmscss.css">
     <style>
-
-        .slide-in {
-            transform: translateX(-100%);
-            transition: transform 0.5s ease-in-out;
+        @keyframes slide-in-left {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
-
-        .slide-in-active {
-            transform: translateX(0);
+        #d2 {
+            animation: slide-in-left 0.5s ease-out;
         }
-
-        .slide-up {
-            transform: translateY(100%);
-            transition: transform 0.5s ease-in-out;
+        @keyframes slide-in-right {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
-
-        .slide-up-active {
-            transform: translateY(0);
+        #d3 {
+            animation: slide-in-right 0.5s ease-out;
         }
-
+        .chatbot-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            z-index: 110;
+        }
+        .chatbot-icon:hover {
+            transform: scale(1.1);
+        }
+        .chatbot-icon::before {
+            content: "?";
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .emitter {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 123, 255, 0.6);
+            border-radius: 50%;
+            animation: emit 4s infinite ease-in-out;
+            pointer-events: none;
+            z-index: 100;
+        }
+        .emitter:nth-child(1) {
+            animation-delay: 0s;
+        }
+        .emitter:nth-child(2) {
+            animation-delay: 1s;
+        }
+        .emitter:nth-child(3) {
+            animation-delay: 2s;
+        }
+        .emitter:nth-child(4) {
+            animation-delay: 3s;
+        }
+        @keyframes emit {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(10);
+                opacity: 0;
+            }
+        }
+        #d0, #d1, #d2, #d3 {
+            z-index: 1;
+        }
     </style>
 </head>
 <body>
 <div id="d0">
-    <h1><b>Welcome to Sahyadri Universal bank</b></h1>
+    <h1><b>Welcome to BANKING UI</b></h1>
 </div>
 <div id="d1">
-    <div id="d2" class="slide-in slide-up">
+    <div id="d2">
         <h2><b>Registration Form</b></h2>
-        <form  id="myForm"  action="/register" method="post">
+        <form id="myForm" action="/register" method="post">
             <label for="firstName">First Name:</label>
             <input type="text" id="firstName" name="firstName" required><br>
-
             <label for="lastName">Last Name:</label>
             <input type="text" id="lastName" name="lastName" required><br>
             <label for="email">Email-Id:</label>
-            <input type="email" id="email" name="email" required>
-            <br>
-            <label for="dateofbirth"> Date of Birth:</label>
+            <input type="email" id="email" name="email" required><br>
+            <label for="dateofbirth">Date of Birth:</label>
             <input type="date" id="dateofbirth" name="dateofbirth" required><br>
             <label for="address">Address:</label>
             <input type="text" id="address" name="address" required><br>
@@ -58,31 +125,32 @@
             <select id="accountType" name="accountType" required>
                 <option value="savings">Savings</option>
                 <option value="fixed-deposit">Fixed-Deposit</option>
-            </select> <br>
-
+            </select><br>
             <label for="registerPassword">Password:</label>
             <input type="password" id="registerPassword" name="registerPassword" required><br>
             <input type="submit" value="Register">
-            <div class="g-recaptcha" data-sitekey="6Lc8MToqAAAAAF_gBzpYyHGNy41FYXlD9nfhnWUL"></div>
+            <div class="g-recaptcha" data-sitekey="6Lc1PzoqAAAAANCeKqpnpVlw2rYb90njwiqKdJTs"></div>
         </form>
     </div>
-
-    <div id="d3" class="slide-in slide-up">
+    <div id="d3">
         <h3><b>Already have your Account?</b></h3>
         <h2><b>Login Your Account Here</b></h2>
         <form action="/login" method="post">
             <label for="customerId">Customer ID:</label>
-            <input type="text" id="customerId" name="customerId" required><br>
+            <input type="text" id="customerId" name="accountNumber" required><br>
             <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="loginPassword" required><br>
+            <input type="password" id="loginPassword" name="password" required><br>
             <input type="submit" value="Login">
-            <div class="g-recaptcha" data-sitekey="6Lc8MToqAAAAAF_gBzpYyHGNy41FYXlD9nfhnWUL"></div>
-
+            <div class="g-recaptcha" data-sitekey="6Lc1PzoqAAAAANCeKqpnpVlw2rYb90njwiqKdJTs"></div>
         </form>
     </div>
 </div>
+<div class="chatbot-icon"></div>
+<div class="emitter"></div>
+<div class="emitter"></div>
+<div class="emitter"></div>
+<div class="emitter"></div>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 <script src="dbmsjs.js"></script>
 <script src="https://cdn.botpress.cloud/webchat/v2.1/inject.js"></script>
 <script src="https://mediafiles.botpress.cloud/acf23d20-5427-4429-866e-3f799ee56ecd/webchat/v2.1/config.js"></script>
@@ -90,16 +158,6 @@
     grecaptcha.ready(function() {
         grecaptcha.execute();
     });
-
-
-    document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("d2").classList.add("fade-in-active");
-    document.getElementById("d3").classList.add("fade-in-active");
-
-    setTimeout(function() {
-        document.getElementById("d2").classList.add("slide-up-active");
-        document.getElementById("d3").classList.add("slide-up-active");
-    }, 500);
-});</script>
+</script>
 </body>
 </html>
